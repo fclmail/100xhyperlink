@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +33,24 @@
             pointer-events: none;
         }
 
+        /* Countdown Timer */
+        .countdown-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: cyan;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-shadow: 0 0 15px cyan;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px cyan;
+        }
+
         /* Title GIF (Top Center) */
         .title-gif {
-            margin-top: 30px;
+            margin-top: 80px;
             max-width: 300px;
             width: 90%;
         }
@@ -94,12 +108,31 @@
             from { transform: translateY(-100%); opacity: 1; }
             to { transform: translateY(100vh); opacity: 0; }
         }
+
+        /* Hit Counter */
+        .hit-counter {
+            margin-top: 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px cyan;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px cyan;
+        }
     </style>
 </head>
 <body>
 
     <!-- Fluorescent Blue Border -->
     <div class="border"></div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-container">
+        GET 100X NOW! LIMITED TIME OFFER:<br>
+        <span id="countdown"></span>
+    </div>
 
     <!-- Title GIF (Top Center) -->
     <img src="xx.gif" alt="Title GIF" class="title-gif">
@@ -115,7 +148,7 @@
         <a href="paypal.html">
             <img src="paypal.gif" alt="PayPal" class="clickable-gif">
         </a>
-        <a href="airdrop.html"> <!-- New Airdrop Link -->
+        <a href="airdrop.html">
             <img src="airdrop.gif" alt="Airdrop" class="clickable-gif">
         </a>
     </div>
@@ -123,6 +156,38 @@
     <!-- Extra Display GIFs -->
     <img src="multiply.gif" alt="Multiply" class="extra-gif">
     <img src="limitedtimeoffer.gif" alt="Limited Time Offer" class="extra-gif">
+
+    <!-- Hit Counter -->
+    <div class="hit-counter">
+        Visitors: <span id="hitCount">Loading...</span>
+    </div>
+
+    <!-- JavaScript for Countdown Timer -->
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("March 31, 2025 23:59:59").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = targetDate - now;
+
+                if (timeLeft <= 0) {
+                    document.getElementById("countdown").innerHTML = "OFFER ENDED!";
+                    return;
+                }
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                const milliseconds = Math.floor((timeLeft % 1000));
+
+                document.getElementById("countdown").innerHTML =
+                    `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
+            }, 1);
+        }
+
+        updateCountdown();
+    </script>
 
     <!-- JavaScript for Floating Emojis -->
     <script>
@@ -139,6 +204,21 @@
         }
 
         setInterval(createEmoji, 500);
+    </script>
+
+    <!-- JavaScript for Hit Counter -->
+    <script>
+        const countKey = "hitCounter";
+        let count = localStorage.getItem(countKey);
+
+        if (count === null) {
+            count = 422112;
+        } else {
+            count = parseInt(count) + 1;
+        }
+
+        localStorage.setItem(countKey, count);
+        document.getElementById("hitCount").textContent = count;
     </script>
 
 </body>
