@@ -81,6 +81,19 @@
             from { filter: drop-shadow(0 0 10px #00f); }
             to { filter: drop-shadow(0 0 20px #0ff); }
         }
+
+        /* Floating Emojis */
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            user-select: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from { transform: translateY(-100%); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -102,12 +115,31 @@
         <a href="paypal.html">
             <img src="paypal.gif" alt="PayPal" class="clickable-gif">
         </a>
+        <a href="airdrop.html"> <!-- New Airdrop Link -->
+            <img src="airdrop.gif" alt="Airdrop" class="clickable-gif">
+        </a>
     </div>
 
     <!-- Extra Display GIFs -->
-    <img src="airdrop.gif" alt="Airdrop" class="extra-gif">
     <img src="multiply.gif" alt="Multiply" class="extra-gif">
     <img src="limitedtimeoffer.gif" alt="Limited Time Offer" class="extra-gif">
+
+    <!-- JavaScript for Floating Emojis -->
+    <script>
+        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🪂", "🪂", "🪂", "🪂", "🪂", "⛽", "⛽"];
+
+        function createEmoji() {
+            const emoji = document.createElement("div");
+            emoji.classList.add("emoji");
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 5000);
+        }
+
+        setInterval(createEmoji, 500);
+    </script>
 
 </body>
 </html>
