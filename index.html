@@ -3,97 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>100X AIRDROP</title>
     <style>
-        /* General Page Styles */
+        /* Full Page Styling */
         body {
             margin: 0;
-            padding: 0;
+            overflow: hidden;
             background-color: black;
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            position: relative;
+            background-image: url('xx.gif'); /* Background GIF */
+            background-size: cover;
+            background-position: center;
         }
 
-        /* Glowing Neon Border */
+        /* Neon Blue Border */
         .border {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            border: 15px solid #00f;
-            box-shadow: 0 0 30px #00f;
-            border-radius: 20px;
+            border: 10px solid #00f;
+            box-shadow: 0 0 20px #00f;
+            border-radius: 15px;
             pointer-events: none;
         }
 
         /* Countdown Timer */
         .countdown-container {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            color: cyan;
-            font-size: 1.8rem;
+            top: 40px;
+            left: 40px;
+            color: darkblue;
+            font-size: 0.9rem;
             font-weight: bold;
-            text-shadow: 0 0 15px cyan;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px cyan;
+            text-shadow: 0 0 10px white;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px white;
+            border: 2px solid darkblue;
         }
 
-        /* Title GIF (Top Center) */
+        /* Centered Title GIF */
         .title-gif {
-            margin-top: 80px;
-            max-width: 300px;
-            width: 90%;
+            margin-top: 50px;
+            max-width: 250px;
         }
 
-        /* Free Airdrop GIF */
-        .freeairdrop-gif {
+        /* Free Airdrop GIF (Below Title) */
+        .free-airdrop {
             margin-top: 20px;
-            max-width: 350px;
-            width: 90%;
+            max-width: 300px;
         }
 
-        /* Container for Clickable GIF Links */
-        .gif-container {
+        /* Clickable GIF Links */
+        .gif-links {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
             margin-top: 20px;
+            gap: 15px;
         }
 
-        /* Clickable GIFs */
-        .clickable-gif {
-            max-width: 350px;
-            width: 90%;
+        .gif-links img {
+            width: 250px;
             cursor: pointer;
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s;
         }
 
-        .clickable-gif:hover {
+        .gif-links img:hover {
             transform: scale(1.1);
-        }
-
-        /* Extra Display GIFs */
-        .extra-gif {
-            max-width: 300px;
-            width: 90%;
-            margin-top: 20px;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 10px #00f); }
-            to { filter: drop-shadow(0 0 20px #0ff); }
         }
 
         /* Floating Emojis */
@@ -101,6 +86,7 @@
             position: absolute;
             font-size: 2rem;
             user-select: none;
+            pointer-events: none;
             animation: fall linear infinite;
         }
 
@@ -111,67 +97,59 @@
 
         /* Hit Counter */
         .hit-counter {
-            margin-top: 20px;
-            color: white;
+            position: absolute;
+            bottom: 20px;
             font-size: 1.5rem;
-            font-weight: bold;
-            text-shadow: 0 0 10px cyan;
+            color: #00f;
+            text-shadow: 0 0 10px #00f;
             background: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px cyan;
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 2px solid #00f;
         }
     </style>
 </head>
 <body>
 
-    <!-- Fluorescent Blue Border -->
+    <!-- Neon Border -->
     <div class="border"></div>
 
     <!-- Countdown Timer -->
     <div class="countdown-container">
-        GET 100X NOW! LIMITED TIME OFFER:<br>
-        <span id="countdown"></span>
+        <strong>GET 100X NOW LIMITED TIME OFFER</strong><br>
+        <span id="timer"></span>
     </div>
 
-    <!-- Title GIF (Top Center) -->
-    <img src="xx.gif" alt="Title GIF" class="title-gif">
+    <!-- Title GIF -->
+    <img src="xx.gif" alt="100X Airdrop" class="title-gif">
 
-    <!-- Free Airdrop GIF (Directly Below Title) -->
-    <img src="freeairdrop.gif" alt="Free Airdrop" class="freeairdrop-gif">
+    <!-- Free Airdrop GIF Below Title -->
+    <img src="freeairdrop.gif" alt="Free Airdrop" class="free-airdrop">
 
     <!-- Clickable GIF Links -->
-    <div class="gif-container">
-        <a href="metamask.html">
-            <img src="metamask.gif" alt="Metamask" class="clickable-gif">
-        </a>
-        <a href="paypal.html">
-            <img src="paypal.gif" alt="PayPal" class="clickable-gif">
-        </a>
-        <a href="airdrop.html">
-            <img src="airdrop.gif" alt="Airdrop" class="clickable-gif">
-        </a>
+    <div class="gif-links">
+        <a href="metamask.html"><img src="metamask.gif" alt="MetaMask"></a>
+        <a href="paypal.html"><img src="paypal.gif" alt="PayPal"></a>
+        <a href="airdrop.html"><img src="airdrop.gif" alt="Airdrop"></a>
+        <img src="multiply.gif" alt="Multiply">
+        <img src="limitedtimeoffer.gif" alt="Limited Time Offer">
     </div>
-
-    <!-- Extra Display GIFs -->
-    <img src="multiply.gif" alt="Multiply" class="extra-gif">
-    <img src="limitedtimeoffer.gif" alt="Limited Time Offer" class="extra-gif">
 
     <!-- Hit Counter -->
     <div class="hit-counter">
-        Visitors: <span id="hitCount">Loading...</span>
+        Visitors: <span id="hit-count">422,112</span>
     </div>
 
-    <!-- JavaScript for Countdown Timer -->
     <script>
-        function updateCountdown() {
-            const targetDate = new Date("March 31, 2025 23:59:59").getTime();
+        // Countdown Timer to March 31, 2025
+        function updateTimer() {
+            const targetDate = new Date("March 31, 2025 00:00:00").getTime();
             setInterval(() => {
                 const now = new Date().getTime();
                 const timeLeft = targetDate - now;
 
-                if (timeLeft <= 0) {
-                    document.getElementById("countdown").innerHTML = "OFFER ENDED!";
+                if (timeLeft < 0) {
+                    document.getElementById("timer").innerHTML = "EXPIRED!";
                     return;
                 }
 
@@ -181,18 +159,14 @@
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
                 const milliseconds = Math.floor((timeLeft % 1000));
 
-                document.getElementById("countdown").innerHTML =
+                document.getElementById("timer").innerHTML =
                     `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;
-            }, 1);
+            }, 50);
         }
+        updateTimer();
 
-        updateCountdown();
-    </script>
-
-    <!-- JavaScript for Floating Emojis -->
-    <script>
-        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🪂", "🪂", "🪂", "🪂", "🪂", "⛽", "⛽"];
-
+        // Floating Emojis
+        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🎁", "🪂", "🪂", "🪂", "🪂", "🎁", "⛽"];
         function createEmoji() {
             const emoji = document.createElement("div");
             emoji.classList.add("emoji");
@@ -200,25 +174,15 @@
             emoji.style.left = Math.random() * 100 + "vw";
             emoji.style.animationDuration = (Math.random() * 3 + 2) + "s";
             document.body.appendChild(emoji);
-            setTimeout(() => emoji.remove(), 5000);
+            setTimeout(() => emoji.remove(), 4000);
         }
+        setInterval(createEmoji, 300);
 
-        setInterval(createEmoji, 500);
-    </script>
-
-    <!-- JavaScript for Hit Counter -->
-    <script>
-        const countKey = "hitCounter";
-        let count = localStorage.getItem(countKey);
-
-        if (count === null) {
-            count = 422112;
-        } else {
-            count = parseInt(count) + 1;
-        }
-
-        localStorage.setItem(countKey, count);
-        document.getElementById("hitCount").textContent = count;
+        // Hit Counter (Increments on Refresh)
+        let count = localStorage.getItem("hitCount") ? parseInt(localStorage.getItem("hitCount")) : 422112;
+        count++;
+        document.getElementById("hit-count").innerText = count;
+        localStorage.setItem("hitCount", count);
     </script>
 
 </body>
