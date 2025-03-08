@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +17,6 @@
             align-items: center;
             justify-content: flex-start;
             height: 100vh;
-            background-image: url('xx.gif'); /* Background GIF */
-            background-size: cover;
-            background-position: center;
         }
 
         /* Neon Blue Border */
@@ -36,23 +34,21 @@
 
         /* Countdown Timer */
         .countdown-container {
-            position: absolute;
-            top: 40px;
-            left: 40px;
+            margin-top: 20px;
             color: darkblue;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             font-weight: bold;
             text-shadow: 0 0 10px white;
             background: rgba(255, 255, 255, 0.9);
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px white;
             border: 2px solid darkblue;
         }
 
-        /* Centered Title GIF */
+        /* Centered Title GIF - Now moved further down */
         .title-gif {
-            margin-top: 50px;
+            margin-top: 60px; /* Moved further down */
             max-width: 250px;
         }
 
@@ -62,22 +58,24 @@
             max-width: 300px;
         }
 
-        /* Clickable GIF Links */
-        .gif-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+        /* Container for all GIFs */
+        .gif-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+            align-items: center;
         }
 
-        .gif-links img {
-            width: 250px;
+        /* Clickable GIFs */
+        .gif-container img {
+            width: 200px;
             cursor: pointer;
             transition: transform 0.2s;
         }
 
-        .gif-links img:hover {
+        .gif-container img:hover {
             transform: scale(1.1);
         }
 
@@ -114,20 +112,20 @@
     <!-- Neon Border -->
     <div class="border"></div>
 
-    <!-- Countdown Timer -->
+    <!-- Countdown Timer (Above Title GIF) -->
     <div class="countdown-container">
         <strong>GET 100X NOW LIMITED TIME OFFER</strong><br>
         <span id="timer"></span>
     </div>
 
-    <!-- Title GIF -->
+    <!-- Title GIF (Moved Down) -->
     <img src="xx.gif" alt="100X Airdrop" class="title-gif">
 
     <!-- Free Airdrop GIF Below Title -->
     <img src="freeairdrop.gif" alt="Free Airdrop" class="free-airdrop">
 
-    <!-- Clickable GIF Links -->
-    <div class="gif-links">
+    <!-- Clickable GIF Links in Grid Layout -->
+    <div class="gif-container">
         <a href="metamask.html"><img src="metamask.gif" alt="MetaMask"></a>
         <a href="paypal.html"><img src="paypal.gif" alt="PayPal"></a>
         <a href="airdrop.html"><img src="airdrop.gif" alt="Airdrop"></a>
@@ -166,7 +164,7 @@
         updateTimer();
 
         // Floating Emojis
-        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🎁", "🪂", "🪂", "🪂", "🪂", "🎁", "⛽"];
+        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🪂", "🪂", "🪂", "🪂", "🪂", "⛽", "⛽"];
         function createEmoji() {
             const emoji = document.createElement("div");
             emoji.classList.add("emoji");
