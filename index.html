@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +45,7 @@
             border: 2px solid darkblue;
         }
 
-        /* Centered Title GIF - Now moved further down */
+        /* Centered Title GIF - Moved Down */
         .title-gif {
             margin-top: 60px; /* Moved further down */
             max-width: 250px;
@@ -58,25 +57,23 @@
             max-width: 300px;
         }
 
-        /* Container for all GIFs */
+        /* Scrolling GIFs Container */
         .gif-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 250px; /* Adjust height for large GIFs */
+            display: flex;
             align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 20px;
         }
 
-        /* Clickable GIFs */
+        /* Individual GIFs */
         .gif-container img {
-            width: 200px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .gif-container img:hover {
-            transform: scale(1.1);
+            max-width: 400px; /* Extra Large */
+            display: none;
+            transition: opacity 0.5s ease-in-out;
         }
 
         /* Floating Emojis */
@@ -124,7 +121,7 @@
     <!-- Free Airdrop GIF Below Title -->
     <img src="freeairdrop.gif" alt="Free Airdrop" class="free-airdrop">
 
-    <!-- Clickable GIF Links in Grid Layout -->
+    <!-- Scrolling Clickable GIFs -->
     <div class="gif-container">
         <a href="metamask.html"><img src="metamask.gif" alt="MetaMask"></a>
         <a href="paypal.html"><img src="paypal.gif" alt="PayPal"></a>
@@ -163,6 +160,18 @@
         }
         updateTimer();
 
+        // Scrolling GIFs Logic
+        let currentGif = 0;
+        const gifs = document.querySelectorAll(".gif-container img");
+
+        function showNextGif() {
+            gifs.forEach(gif => gif.style.display = "none"); // Hide all GIFs
+            gifs[currentGif].style.display = "block"; // Show current GIF
+            currentGif = (currentGif + 1) % gifs.length; // Move to next GIF
+        }
+        showNextGif(); // Show first GIF
+        setInterval(showNextGif, 2000); // Rotate GIFs every 2 seconds
+
         // Floating Emojis
         const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🪂", "🪂", "🪂", "🪂", "🪂", "⛽", "⛽"];
         function createEmoji() {
@@ -185,3 +194,4 @@
 
 </body>
 </html>
+
