@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        /* General Page Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Glowing Neon Border */
+        .border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            border: 15px solid #00f;
+            box-shadow: 0 0 30px #00f;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        /* Title GIF (Top Center, Does Not Touch Border) */
+        .title-gif {
+            margin-top: 30px; /* Keeps it away from the border */
+            max-width: 300px;
+        }
+
+        /* Container for the GIF links */
+        .gif-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Clickable GIF links */
+        .clickable-gif {
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .clickable-gif:hover {
+            transform: scale(1.1);
+        }
+
+        /* Extra GIFs for display */
+        .extra-gif {
+            width: 200px;
+            margin-top: 15px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px #00f); }
+            to { filter: drop-shadow(0 0 20px #0ff); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fluorescent Blue Border -->
+    <div class="border"></div>
+
+    <!-- Title GIF (Top Center) -->
+    <img src="xx.gif" alt="Title GIF" class="title-gif">
+
+    <!-- Clickable GIF Links -->
+    <div class="gif-container">
+        <a href="metamask.html">
+            <img src="metamask.gif" alt="Metamask" class="clickable-gif">
+        </a>
+        <a href="paypal.html">
+            <img src="paypal.gif" alt="PayPal" class="clickable-gif">
+        </a>
+    </div>
+
+    <!-- Extra Display GIFs -->
+    <img src="airdrop.gif" alt="Airdrop" class="extra-gif">
+    <img src="multiply.gif" alt="Multiply" class="extra-gif">
+    <img src="limitedtimeoffer.gif" alt="Limited Time Offer" class="extra-gif">
+
+</body>
+</html>
