@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,13 +16,14 @@
             align-items: center;
             justify-content: flex-start;
             height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
         }
 
         /* Glowing Neon Border */
         .border {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
@@ -32,24 +34,33 @@
             pointer-events: none;
         }
 
-        /* Title GIF (Top Center, Does Not Touch Border) */
+        /* Title GIF (Top Center) */
         .title-gif {
-            margin-top: 30px; /* Keeps it away from the border */
+            margin-top: 30px;
             max-width: 300px;
+            width: 90%;
         }
 
-        /* Container for the GIF links */
+        /* Free Airdrop GIF */
+        .freeairdrop-gif {
+            margin-top: 20px;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        /* Container for Clickable GIF Links */
         .gif-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             margin-top: 20px;
         }
 
-        /* Clickable GIF links */
+        /* Clickable GIFs */
         .clickable-gif {
-            width: 250px;
+            max-width: 350px;
+            width: 90%;
             cursor: pointer;
             transition: transform 0.2s ease-in-out;
         }
@@ -58,10 +69,11 @@
             transform: scale(1.1);
         }
 
-        /* Extra GIFs for display */
+        /* Extra Display GIFs */
         .extra-gif {
-            width: 200px;
-            margin-top: 15px;
+            max-width: 300px;
+            width: 90%;
+            margin-top: 20px;
             animation: glow 1.5s infinite alternate;
         }
 
@@ -78,6 +90,9 @@
 
     <!-- Title GIF (Top Center) -->
     <img src="xx.gif" alt="Title GIF" class="title-gif">
+
+    <!-- Free Airdrop GIF (Directly Below Title) -->
+    <img src="freeairdrop.gif" alt="Free Airdrop" class="freeairdrop-gif">
 
     <!-- Clickable GIF Links -->
     <div class="gif-container">
