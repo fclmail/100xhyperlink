@@ -31,7 +31,7 @@
             pointer-events: none;
         }
 
-        /* Countdown Timer */
+        /* Centered Countdown Timer */
         .countdown-container {
             margin-top: 20px;
             color: darkblue;
@@ -43,35 +43,35 @@
             border-radius: 8px;
             box-shadow: 0 0 10px white;
             border: 2px solid darkblue;
+            text-align: center;
         }
 
-        /* Centered Title GIF - Moved Down */
+        /* Centered Title GIF - Moved Up */
         .title-gif {
-            margin-top: 60px; /* Moved further down */
+            margin-top: 30px; /* Adjusted Position */
             max-width: 250px;
         }
 
-        /* Free Airdrop GIF (Below Title) */
+        /* Free Airdrop GIF */
         .free-airdrop {
-            margin-top: 20px;
+            margin-top: 10px;
             max-width: 300px;
         }
 
-        /* Scrolling GIFs Container */
+        /* Scrolling GIFs */
         .gif-container {
             position: relative;
             width: 100%;
-            height: 250px; /* Adjust height for large GIFs */
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
-        /* Individual GIFs */
         .gif-container img {
-            max-width: 400px; /* Extra Large */
+            max-width: 400px;
             display: none;
             transition: opacity 0.5s ease-in-out;
         }
@@ -90,15 +90,15 @@
             to { transform: translateY(100vh); opacity: 0; }
         }
 
-        /* Hit Counter */
+        /* Smaller Hit Counter */
         .hit-counter {
             position: absolute;
-            bottom: 20px;
-            font-size: 1.5rem;
+            bottom: 15px;
+            font-size: 1rem;
             color: #00f;
             text-shadow: 0 0 10px #00f;
             background: rgba(0, 0, 0, 0.7);
-            padding: 8px 20px;
+            padding: 5px 15px;
             border-radius: 8px;
             border: 2px solid #00f;
         }
@@ -109,16 +109,16 @@
     <!-- Neon Border -->
     <div class="border"></div>
 
-    <!-- Countdown Timer (Above Title GIF) -->
+    <!-- Countdown Timer (Centered) -->
     <div class="countdown-container">
-        <strong>GET 100X NOW LIMITED TIME OFFER</strong><br>
+        <strong>MULTIPLY ANY AMOUNT 100 X INSTANTLY LIMITED TIME OFFER</strong><br>
         <span id="timer"></span>
     </div>
 
-    <!-- Title GIF (Moved Down) -->
+    <!-- Title GIF (Moved Up) -->
     <img src="xx.gif" alt="100X Airdrop" class="title-gif">
 
-    <!-- Free Airdrop GIF Below Title -->
+    <!-- Free Airdrop GIF -->
     <img src="freeairdrop.gif" alt="Free Airdrop" class="free-airdrop">
 
     <!-- Scrolling Clickable GIFs -->
@@ -130,7 +130,7 @@
         <img src="limitedtimeoffer.gif" alt="Limited Time Offer">
     </div>
 
-    <!-- Hit Counter -->
+    <!-- Hit Counter (Smaller) -->
     <div class="hit-counter">
         Visitors: <span id="hit-count">422,112</span>
     </div>
@@ -173,7 +173,7 @@
         setInterval(showNextGif, 2000); // Rotate GIFs every 2 seconds
 
         // Floating Emojis
-        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🪂", "🪂", "🪂", "🪂", "🪂", "⛽", "⛽"];
+        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🎁", "🪂", "🎁", "🪂", "🪂", "⛽", "⛽"
         function createEmoji() {
             const emoji = document.createElement("div");
             emoji.classList.add("emoji");
