@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,15 +32,15 @@
             pointer-events: none;
         }
 
-        /* Countdown Timer */
+        /* Countdown Timer (Smaller Size) */
         .countdown-container {
-            margin-top: 20px;
+            margin-top: 10px; /* Reduced margin */
             color: darkblue;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Decreased font size */
             font-weight: bold;
             text-shadow: 0 0 10px white;
             background: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
+            padding: 5px 15px; /* Adjusted padding */
             border-radius: 8px;
             box-shadow: 0 0 10px white;
             border: 2px solid darkblue;
@@ -48,30 +49,30 @@
 
         /* Title GIF */
         .title-gif {
-            margin-top: 20px;
+            margin-top: 15px; /* Adjusted spacing */
             max-width: 250px;
         }
 
-        /* Scrolling GIFs Container */
+        /* Scrolling GIFs Container (Centered) */
         .gif-container {
             position: relative;
-            width: 100%;
-            height: 250px;
+            width: 90%; /* Adjusted width for centering */
+            height: 200px; /* Decreased height */
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            margin-top: 10px; /* Adjusted for better spacing */
         }
 
         /* Individual GIFs */
         .gif-container img {
-            max-width: 400px;
+            max-width: 350px; /* Adjusted for visibility */
             position: absolute;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
 
-        /* First GIF visible initially */
         .gif-container img:first-child {
             opacity: 1;
         }
@@ -98,7 +99,6 @@
             pointer-events: none;
             animation: fall linear infinite;
         }
-
     </style>
 </head>
 <body>
@@ -106,9 +106,9 @@
     <!-- Neon Border -->
     <div class="border"></div>
 
-    <!-- Countdown Timer -->
+    <!-- Countdown Timer (Smaller) -->
     <div class="countdown-container">
-        <strong>GHX-T ALGORITHM ™️©️ MULTIPLY ANY AMOUNT  INSTANTLY 100X LIMITED TIME OFFER</strong><br>
+        <strong>GHX-T ALGORITHM ™️©️ MULTIPLY ANY AMOUNT INSTANTLY 100X LIMITED TIME OFFER</strong><br>
         <span id="timer"></span>
     </div>
 
@@ -141,11 +141,10 @@
                 const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                const milliseconds = Math.floor((timeLeft % 1000));
 
                 document.getElementById("timer").innerHTML =  
-                    `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;  
-            }, 50);
+                    `${days}d ${hours}h ${minutes}m ${seconds}s`;  
+            }, 1000);
         }
         updateTimer();
 
@@ -196,4 +195,3 @@
 
 </body>
 </html>
-
