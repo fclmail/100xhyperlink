@@ -54,12 +54,12 @@
             z-index: 2;
         }
 
-        /* Scrolling GIFs Container (Centered & Moved Up) */
+        /* Scrolling GIFs Container (Centered & Adjustable) */
         .gif-container {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -60%);
+            top: 50%;          /* Center vertically */
+            left: 50%;         /* Center horizontally */
+            transform: translate(-50%, -50%);  /* Adjust -50% to fine-tune horizontal positioning */
             width: 90%;
             height: 200px;
             display: flex;
@@ -76,6 +76,7 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
+
         .gif-container img:first-child {
             opacity: 1;
         }
@@ -88,6 +89,7 @@
             pointer-events: none;
             animation: fall linear infinite;
         }
+
         .floating-img {
             position: absolute;
             max-width: 80px;
@@ -95,6 +97,7 @@
             pointer-events: none;
             animation: fall linear infinite;
         }
+
         @keyframes fall {
             from { transform: translateY(-100%); opacity: 1; }
             to { transform: translateY(100vh); opacity: 0; }
@@ -115,7 +118,7 @@
     <!-- Title GIF -->
     <img src="xx.gif" alt="100X Airdrop" class="title-gif">
 
-    <!-- Scrolling GIFs (Centered & Moved Up) -->
+    <!-- Scrolling GIFs (Centered) -->
     <div class="gif-container">
         <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="metamask.gif" alt="MetaMask"></a>
         <a href="https://fclmail.github.io/PAYPAL/"><img src="paypal.gif" alt="PayPal"></a>
@@ -183,4 +186,5 @@
 
 </body>
 </html>
+
 
