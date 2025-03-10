@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
@@ -55,6 +54,20 @@
             z-index: 2;  
         }  
 
+        /* Neon Text Styling */  
+        .neon-text {  
+            font-size: 2em;  /* Adjust the size as needed */  
+            color: #00faff; /* Light Blue - you can change this */  
+            text-shadow:  
+                0 0 5px #00faff,   /* Subtle glow */  
+                0 0 10px #00faff,  /* More prominent glow */  
+                0 0 20px #00faff;  /* Outer glow */  
+            margin-top: 10px;     /* Spacing below the GIF */  
+            text-align: center;  /* Center the text horizontally */  
+            z-index: 2;          /* Ensure it sits above other elements */  
+            font-weight: bold;  /* Make the text bolder */  
+        }  
+
         /* Scrolling GIFs Container */  
         .gif-container {  
             position: absolute;  
@@ -99,6 +112,9 @@
 
     <!-- Title GIF -->  
     <img src="xx.gif" alt="100X Airdrop" class="title-gif">  
+
+    <!-- Neon Text -->  
+    <div class="neon-text">$ 1,200,400 FREE AIRDROP</div>  
 
     <!-- Scrolling GIFs (Fixed Clickable Links) -->  
     <div class="gif-container">  
