@@ -56,24 +56,24 @@
 
         /* Neon Text Styling */  
         .neon-text {  
-            font-size: 2em;  /* Adjust the size as needed */  
-            color: #00faff; /* Light Blue - you can change this */  
+            font-size: 1em;  
+            color: #00faff;  
             text-shadow:  
-                0 0 5px #00faff,   /* Subtle glow */  
-                0 0 10px #00faff,  /* More prominent glow */  
-                0 0 20px #00faff;  /* Outer glow */  
-            margin-top: 10px;     /* Spacing below the GIF */  
-            text-align: center;  /* Center the text horizontally */  
-            z-index: 2;          /* Ensure it sits above other elements */  
-            font-weight: bold;  /* Make the text bolder */  
+                0 0 5px #00faff,  
+                0 0 10px #00faff,  
+                0 0 20px #00faff;  
+            margin-top: 10px;  
+            text-align: center;  
+            z-index: 2;  
+            font-weight: bold;  
         }  
 
         /* Scrolling GIFs Container */  
         .gif-container {  
             position: absolute;  
-            top: 40%; /* Adjust this value to move the container down */  
+            top: 40%;  
             left: 50%;  
-            transform: translate(-50%, -5%); /* Adjust the -50% if needed after moving */  
+            transform: translate(-50%, -5%);  
             width: 90%;  
             height: 200px;  
             display: flex;  
@@ -85,12 +85,12 @@
 
         /* Individual GIFs */  
         .gif-container a {  
-            display: none; /* Hide all links initially */  
+            display: none;  
             position: absolute;  
         }  
 
         .gif-container a.active {  
-            display: block; /* Show only the active link */  
+            display: block;  
         }  
 
         .gif-container img {  
@@ -114,7 +114,7 @@
     <img src="xx.gif" alt="100X Airdrop" class="title-gif">  
 
     <!-- Neon Text -->  
-    <div class="neon-text">$ 1,200,400 FREE AIRDROP</div>  
+    <div class="neon-text">$ 1,200,000 FREE AIRDROP</div>  
 
     <!-- Scrolling GIFs (Fixed Clickable Links) -->  
     <div class="gif-container">  
@@ -136,17 +136,21 @@
             setInterval(() => {  
                 const now = new Date().getTime();  
                 const timeLeft = targetDate - now;  
+
                 if (timeLeft < 0) {  
                     document.getElementById("timer").innerHTML = "EXPIRED!";  
                     return;  
                 }  
+
                 const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));  
                 const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  
+                const milliseconds = Math.floor(timeLeft % 1000);  // Get milliseconds  
+
                 document.getElementById("timer").innerHTML =  
-                    `${days}d ${hours}h ${minutes}m ${seconds}s`;  
-            }, 1000);  
+                    `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds}ms`; // Include milliseconds  
+            }, 50); // Reduced interval to 50 milliseconds for smoother updates.  100 or lower is good.  Higher values make the milliseconds jump.  
         }  
         updateTimer();  
 
