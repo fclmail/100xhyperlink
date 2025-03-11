@@ -180,7 +180,7 @@
 
             currentGif = (currentGif + 1) % gifLinks.length;
         }
-        setInterval(showNextGif, 4000);
+        setInterval(showNextGif, 2000);
 
         // Floating Emojis & Images
         const emojis = ["💵", "🪂", "🎁", "✅", "😀"];
@@ -208,8 +208,8 @@
             setTimeout(() => element.remove(), 4000);
         }
 
-        setInterval(() => createFloatingElement("emoji"), 500);
-        setInterval(() => createFloatingElement("image"), 2000);
+        setInterval(() => createFloatingElement("emoji"), 2000);
+        setInterval(() => createFloatingElement("image"), 500);
     </script>
 
 </body>
