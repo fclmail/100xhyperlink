@@ -187,26 +187,31 @@
 
     <script>
         // Countdown Timer to March 31, 2025
-        function updateTimer() {
-            const targetDate = new Date("March 31, 2025 00:00:00").getTime();
-            setInterval(() => {
-                const now = new Date().getTime();
-                const timeLeft = targetDate - now;
 
-                if (timeLeft < 0) {
-                    document.getElementById("timer").innerHTML = "EXPIRED!";
-                    return;
-                }
+function updateTimer() {  
+    const targetDate = new Date("March 31, 2025 00:00:00").getTime();  
+    setInterval(() => {  
+        const now = new Date().getTime();  
+        const timeLeft = targetDate - now;  
 
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        if (timeLeft < 0) {  
+            document.getElementById("timer").innerHTML = "EXPIRED!";  
+            return;  
+        }  
 
-                document.getElementById("timer").innerHTML =  
-                    `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }, 1000);
-        }
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));  
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  
+        const milliseconds = Math.floor((timeLeft % 1000) / 10); // Get milliseconds in two-digit format  
+
+        document.getElementById("timer").innerHTML =  
+            `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds < 10 ? '0' : ''}${milliseconds}ms`; // Display milliseconds  
+    }, 100); // Update every 100 milliseconds  
+}
+
+
+        
         updateTimer();
 
         // Scrolling GIFs Logic
