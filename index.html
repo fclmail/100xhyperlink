@@ -66,19 +66,12 @@
         }
 
         /* Scrolling GIFs Container */
-        .gif-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -5%);
-            width: 110%;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: visible;
-            z-index: 1;
-        }
+.gif-container img {
+    width: 120px;         /* makes all GIFs same width */
+    height: auto;         /* keeps the natural height ratio */
+    max-height: 180px;    /* prevents very tall GIFs */
+    object-fit: contain;  /* ensures content fits inside the box without stretching */
+}        
 /* Congratulations GIF Styling */  
 .congratulations-gif {  
     margin-top: 75px; /* Adds space above the GIF, about 2 inches depending on DPI */  
