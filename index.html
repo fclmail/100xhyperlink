@@ -65,18 +65,28 @@
             font-weight: bold;
         }
 /* Scrolling GIFs Container */
-        .gif-container {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -5%);
-            width: 70%;
-            height: 185;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: visible;
-            z-index: 1;
+       /* Scrolling GIFs Container */
+.gif-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    width: 70%;
+    height: 20vh; /* changed from fixed number to responsive height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    z-index: 1;
+}
+
+/* All images inside gif-container auto-resize */
+.gif-container img {
+    width: 100%;
+    max-width: 350px; /* Limit max size to stay clean on big screens */
+    height: auto;
+}
+
         }    
 /* Congratulations GIF Styling */  
 .congratulations-gif {  
