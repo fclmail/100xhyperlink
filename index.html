@@ -25,7 +25,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            border: 14px solid #00faff;
+            border: 10px solid #00faff;
             box-shadow: 0 0 40px #00faff;
             border-radius: 25px;
             pointer-events: none;
@@ -33,14 +33,14 @@
 
         /* Countdown Timer */
         .countdown-container {
-            margin-top: 14px;
+            margin-top: 12px;
             color: darkblue;
             font-size: 1rem;
             font-weight: bold;
             text-shadow: 0 0 10px white;
             background: rgba(255, 255, 255, 0.9);
             padding: 5px 15px;
-            border-radius: 9px;
+            border-radius: 5px;
             box-shadow: 0 0 10px white;
             border: 2px solid darkblue;
             text-align: center;
@@ -49,7 +49,7 @@
 
         /* Title GIF */
         .title-gif {
-            margin-top: -29px;
+            margin-top: -25px;
             max-width: 350px;
             z-index: 2;
         }
@@ -65,33 +65,23 @@
             font-weight: bold;
         }
 /* Scrolling GIFs Container */
-       /* Scrolling GIFs Container */
-.gif-container {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -5%);
-    width: 70%;
-    height: 20vh; /* changed from fixed number to responsive height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
-    z-index: 1;
-}
-
-/* All images inside gif-container auto-resize */
-.gif-container img {
-    width: 100%;
-    max-width: 350px; /* Limit max size to stay clean on big screens */
-    height: auto;
-}
-
+        .gif-container {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -5%);
+            width: 70%;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            z-index: 1;
         }    
 /* Congratulations GIF Styling */  
 .congratulations-gif {  
-    margin-top: 300px; /* Adds space above the GIF, about 2 inches depending on DPI */  
-    max-width: 75px; /* Limit the width for responsiveness */  
+    margin-top: 220px; /* Adds space above the GIF, about 2 inches depending on DPI */  
+    max-width: 340px; /* Limit the width for responsiveness */  
     display: block; /* Necessary for centering */  
     margin-left: auto; /* Centers the image */  
     margin-right: auto; /* Centers the image */  
