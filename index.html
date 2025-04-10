@@ -66,14 +66,17 @@
         }
 /* Scrolling GIFs Container */
       .gif-container img {
-          position: absolute;
-                     top: 35%; 
-  width: 250px;       /* or whatever consistent size you want */
-  height: 80;       /* keeps aspect ratio OR set height too */
-  object-fit: contain; /* prevents distortion while fitting in box */
-  margin: 0 10px;     /* optional spacing between GIFs */
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -5%);
+            width: 70%;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            z-index: 1;          
 }
 
         }    
