@@ -257,5 +257,26 @@
     setInterval(() => createFloatingElement("emoji"), 1000);
     setInterval(() => createFloatingElement("image"), 70);
   </script>
+
+
+<!-- Hit Counter Display -->
+<div id="hit-counter" style="position: absolute; bottom: 10px; left: 10px; font-size: 14px; color: darkblue; background: white; padding: 4px 10px; border-radius: 8px; font-weight: bold; z-index: 9999; box-shadow: 0 0 8px rgba(0,0,0,0.2);">
+  Hits: 100000
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Start value at 100000
+    let base = 100000;
+    let hits = localStorage.getItem("hitCount") || 0;
+
+    hits++;
+    localStorage.setItem("hitCount", hits);
+
+    const total = base + parseInt(hits);
+    const counter = document.getElementById("hit-counter");
+    counter.textContent = "Hits: " + total.toLocaleString();
+  });
+</script>  
 </body>
 </html>
