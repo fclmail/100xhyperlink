@@ -38,7 +38,7 @@
       top: 0;
       left: 0;
       width: 93vw;
-      height: 200vh;
+      height: 120vh;
       border: 19px solid #00faff;
       box-shadow: 0 0 40px #00faff;
       border-radius: 50px;
@@ -294,7 +294,7 @@
       // Start hits from 110,000
       const initialHits = 110000;
 
-      fetch(`https://api.countapi.xyz/hit/${siteKey}/visits`)
+      fetch("https://api.countapi.xyz/hit/100x-crypto.com")
         .then(res => res.json())
         .then(data => {
           const counter = document.getElementById("hit-counter");
