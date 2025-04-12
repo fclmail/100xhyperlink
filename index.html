@@ -39,7 +39,7 @@
       left: 0;
       width: 93vw;
       height: 200vh;
-      border: 19px solid #00faff;
+      border: 25px solid #00faff;
       box-shadow: 0 0 40px #00faff;
       border-radius: 50px;
       pointer-events: none;
@@ -280,13 +280,36 @@
 </div>
 
 <script>
-  // Use CountAPI to track unique global hit count
-  fetch("https://api.countapi.xyz/hit/fclmail.github.io-100xairdrop/visits")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("hit-counter").textContent = "Hits: " + data.value.toLocaleString();
+
+  <!-- Hit counter display -->
+  <div id="hit-counter" style="font-size: 24px; color: darkblue; text-align: center; margin-top: 20px; font-weight: bold;">
+    Loading hits...
+  </div>
+
+  <!-- Hit Counter Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const siteKey = window.location.hostname + window.location.pathname; // Unique key based on the page URL
+
+      // Start hits from 110,000
+      const initialHits = 110000;
+
+      fetch(`https://api.countapi.xyz/hit/${siteKey}/visits`)
+        .then(res => res.json())
+        .then(data => {
+          const counter = document.getElementById("hit-counter");
+          // Set the starting hit count to 110,000 if there's no hit data yet
+          counter.textContent = "Hits: " + (data.value || initialHits).toLocaleString();
+        })
+        .catch(err => {
+          console.error('Error fetching hit count:', err);
+        });
     });
-</script>
+  </script>
+
+
+
+  
 
 </body>
 </html>
