@@ -38,7 +38,7 @@
       top: 0;
       left: 0;
       width: 93vw;
-      height: 140vh;
+      height: 200vh;
       border: 19px solid #00faff;
       box-shadow: 0 0 40px #00faff;
       border-radius: 50px;
@@ -274,16 +274,20 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      let base = 100000;
-      let hits = localStorage.getItem("hitCount") || 0;
-      hits++;
-      localStorage.setItem("hitCount", hits);
-      const total = base + parseInt(hits);
-      const counter = document.getElementById("hit-counter");
-      counter.textContent = "Hits: " + total.toLocaleString();
+<!-- Hit Counter Display -->
+<div id="hit-counter" style="position: absolute; bottom: 10px; left: 25px; font-size: 14px; color: darkblue; background: black; padding: 4px 10px; border-radius: 8px; font-weight: bold; z-index: 9999; box-shadow: 0 0 8px rgba(0,0,0,0.2);">
+  Hits: Loading...
+</div>
+
+<script>
+  // Use CountAPI to track unique global hit count
+  fetch("https://api.countapi.xyz/hit/fclmail.github.io-100xairdrop/visits")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("hit-counter").textContent = "Hits: " + data.value.toLocaleString();
     });
-  </script>
+</script>
+
 </body>
 </html>
 
