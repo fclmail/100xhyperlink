@@ -269,48 +269,9 @@
     setInterval(() => createFloatingElement("emoji"), 1000);
     setInterval(() => createFloatingElement("image"), 70);
   </script>
-
-  <div id="hit-counter" style="position: absolute; bottom: 10px; left: 25px; font-size: 14px; color: darkblue; background: black; padding: 4px 10px; border-radius: 8px; font-weight: bold; z-index: 9999; box-shadow: 0 0 8px rgba(0,0,0,0.2);">
-    Hits: 100000
-  </div>
-
-  <script>
-<!-- Hit Counter Display -->
-<div id="hit-counter" style="position: absolute; bottom: 10px; left: 25px; font-size: 14px; color: darkblue; background: black; padding: 4px 10px; border-radius: 8px; font-weight: bold; z-index: 9999; box-shadow: 0 0 8px rgba(0,0,0,0.2);">
-  Hits: Loading...
-</div>
-
-<script>
-
-  <!-- Hit counter display -->
-  <div id="hit-counter" style="font-size: 24px; color: darkblue; text-align: center; margin-top: 20px; font-weight: bold;">
-    Loading hits...
-  </div>
-
-  <!-- Hit Counter Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const siteKey = window.location.hostname + window.location.pathname; // Unique key based on the page URL
-
-      // Start hits from 110,000
-      const initialHits = 110000;
-
-      fetch("https://api.countapi.xyz/hit/100x-crypto.com")
-        .then(res => res.json())
-        .then(data => {
-          const counter = document.getElementById("hit-counter");
-          // Set the starting hit count to 110,000 if there's no hit data yet
-          counter.textContent = "Hits: " + (data.value || initialHits).toLocaleString();
-        })
-        .catch(err => {
-          console.error('Error fetching hit count:', err);
-        });
-    });
-  </script>
-
-
-
-  
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=20487177&style=0010&nbdigits=6&type=page&initCount=107232" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>   
 
 </body>
 </html>
